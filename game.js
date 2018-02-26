@@ -14,12 +14,13 @@ document.onkeyup = function(event){
 if (lettersGuessed.indexOf(userGuess) < 0 && choices.indexOf(userGuess) >= 0) {
     lettersGuessed[lettersGuessed.length] = userGuess;
     GuessesLeft --;
-    console.log(lettersGuessed.indexOf(userGuess))
-    console.log ("-----------")
-    console.log(userGuess)
-    console.log(computerGuess)
+    console.log(lettersGuessed.indexOf(userGuess));
+    console.log ("-----------");
+    console.log(userGuess);
+    console.log(computerGuess);
+    console.log(lettersGuessed);
 }
-    
+    // lets make a function for the last three lines in the if statements
 
 var html = 
 "<h1>Guess What Letter I'm Thinking Of!</h1>" +
@@ -28,7 +29,7 @@ var html =
 "<p> Guesses Left: " + GuessesLeft + "</p>" +
 "<p> Your Guesses so far: " + lettersGuessed + "</p>";
 
-// unknown error: when game has been won it takes the winning guess and counts it as the first guess of the next game.
+// unknown error: when game has been won it won't reset until a new key was pressed. w/o console log you wouldn't know what letter won.
 if (computerGuess === userGuess) {
     Wins++;
     GuessesLeft = 9;
@@ -38,7 +39,7 @@ if (computerGuess === userGuess) {
     " Guesses so far: " + lettersGuessed + " Computer picked: " + computerGuess);
 }
 
-if (GuessesLeft == 0){
+if (GuessesLeft == 0) {
     Losses++;
     GuessesLeft = 9;
     lettersGuessed = [];
