@@ -20,7 +20,14 @@ if (lettersGuessed.indexOf(userGuess) < 0 && choices.indexOf(userGuess) >= 0) {
     console.log(computerGuess);
     console.log(lettersGuessed);
 }
-    // lets make a function for the last three lines in the if statements
+
+    function reset (){
+        GuessesLeft = 9;
+        lettersGuessed = [];
+        computerGuess = choices[Math.floor(Math.random() * choices.length)];
+        console.log("Wins: " + Wins + " Losses: " + Losses + " GuessesLeft: " + GuessesLeft + 
+    " Guesses so far: " + lettersGuessed + " Computer picked: " + computerGuess);
+    }
 
 var html = 
 "<h1>Guess What Letter I'm Thinking Of!</h1>" +
@@ -29,24 +36,17 @@ var html =
 "<p> Guesses Left: " + GuessesLeft + "</p>" +
 "<p> Your Guesses so far: " + lettersGuessed + "</p>";
 
-// unknown error: when game has been won it won't reset until a new key was pressed. w/o console log you wouldn't know what letter won.
+// unknown error: when game has been won it won't reset until a new key was pressed. 
+// w/o console log you wouldn't know what letter won.
 if (computerGuess === userGuess) {
     Wins++;
-    GuessesLeft = 9;
-    lettersGuessed = [];
-    computerGuess = choices[Math.floor(Math.random() * choices.length)];
-    console.log("Wins: " + Wins + " Losses: " + Losses + " GuessesLeft: " + GuessesLeft + 
-    " Guesses so far: " + lettersGuessed + " Computer picked: " + computerGuess);
+    reset();
 }
 
 if (GuessesLeft == 0) {
     Losses++;
-    GuessesLeft = 9;
-    lettersGuessed = [];
-    computerGuess = choices[Math.floor(Math.random() * choices.length)];
-    console.log("Wins: " + Wins + " Losses: " + Losses + " GuessesLeft: " + GuessesLeft + 
-    " Guesses so far: " + lettersGuessed + " Computer picked: " + computerGuess);
-
+    reset ();
 }
+
     document.querySelector("#game").innerHTML = html;
 }
