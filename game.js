@@ -40,11 +40,14 @@ var html =
 // w/o console log you wouldn't know what letter won.
 if (computerGuess === userGuess) {
     Wins++;
+    // Added alerts to actually tell when game was won and lossed
+    alert("You Won This Time! Start Guessing to Try Again.");
     reset();
 }
 
 if (GuessesLeft == 0) {
     Losses++;
+    alert("Not So Lucky... Start Guessing To Try Again!")
     reset ();
 }
 
